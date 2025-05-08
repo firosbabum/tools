@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Al Hafiz Computer Shop - Free online PDF tools. Convert PDF to Word, merge PDFs, combine PDF files. Fast, secure, and easy to use.">
+    <meta name="keywords" content="PDF to Word, PDF converter, merge PDF, combine PDF, PDF tools, Al Hafiz Computer Shop">
+    <title>Al Hafiz Computer Shop - PDF Tools | Convert, Merge & Combine PDFs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #f59e0b;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #94a3b8;
+            --success: #10b981;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            background-color: #f1f5f9;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-icon {
+            font-size: 2rem;
+            color: var(--secondary);
+        }
+        
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .logo-tagline {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-top: 3px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 4px;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        nav ul li a:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+        
+        .nav-icon {
+            font-size: 1.1rem;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .cta-button {
+            background-color: var(--secondary);
+            color: var(--dark);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .cta-button:hover {
+            background-color: #fbbf24;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+        }
+        
+        .main {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+        
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 15px auto 0;
+        }
+        
+        .tools-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .tool-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+            border: 1px solid #e2e8f0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .tool-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background-color: var(--primary);
+        }
+        
+        .tool-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .tool-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .tool-description {
+            margin-bottom: 25px;
+            color: var(--gray);
+        }
+        
+        .upload-area {
+            border: 2px dashed #cbd5e1;
+            padding: 30px;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            cursor: pointer;
+            transition: all 0.3s;
+            background-color: #f8fafc;
+        }
+        
+        .upload-area:hover {
+            border-color: var(--primary);
+            background-color: rgba(37, 99, 235, 0.05);
+        }
+        
+        .upload-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .upload-text {
+            font-size: 1rem;
+            color: var(--gray);
+        }
+        
+        .file-input {
+            display: none;
+        }
+        
+        .btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        .btn i {
+            font-size: 1.1rem;
+        }
+        
+        .features {
+            background-color: white;
+            padding: 80px 0;
+            margin: 60px 0;
+            border-top: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .features-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .feature-card {
+            text-align: center;
+            padding: 30px;
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            background-color: #eff6ff;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+        }
+        
+        .feature-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .feature-description {
+            color: var(--gray);
+        }
+        
+        .adsense-container {
+            margin: 60px 0;
+            text-align: center;
+        }
+        
+        .ad-placeholder {
+            background-color: #f1f5f9;
+            padding: 20px;
+            border: 1px dashed #cbd5e1;
+            margin: 0 auto;
+            max-width: 728px;
+            border-radius: 8px;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--secondary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+        
+        .footer-links i {
+            font-size: 0.9rem;
+        }
+        
+        .contact-info {
+            list-style: none;
+        }
+        
+        .contact-info li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        
+        .contact-info i {
+            color: var(--secondary);
+            font-size: 1.1rem;
+            margin-top: 3px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            color: white;
+            background-color: #334155;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #334155;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .tools-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <div>
+                    <div class="logo-text">Al Hafiz Computer Shop</div>
+                    <div class="logo-tagline">Your trusted technology partner</div>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#pdf-to-word"><i class="fas fa-file-word nav-icon"></i> PDF to Word</a></li>
+                    <li><a href="#merge-pdf"><i class="fas fa-file-pdf nav-icon"></i> Merge PDF</a></li>
+                    <li><a href="#combine-pdf"><i class="fas fa-copy nav-icon"></i> Combine PDF</a></li>
+                    <li><a href="#services"><i class="fas fa-laptop nav-icon"></i> Services</a></li>
+                    <li><a href="#contact"><i class="fas fa-phone-alt nav-icon"></i> Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="container">
+            <h1>Premium PDF Tools for All Your Needs</h1>
+            <p>Convert, merge, and combine PDF files with ease using our free online tools. Fast, secure, and no registration required.</p>
+            <button class="cta-button">
+                <i class="fas fa-bolt"></i> Try Our Tools Now
+            </button>
+        </div>
+    </section>
+    
+    <div class="main container">
+        <div class="section-title">
+            <h2>Our PDF Tools</h2>
+            <p>High-quality PDF conversion and manipulation tools powered by Al Hafiz Computer Shop</p>
+        </div>
+        
+        <div class="adsense-container">
+            <div class="ad-placeholder">
+                <!-- Google AdSense Ad Unit -->
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+                     crossorigin="anonymous"></script>
+                <!-- Responsive Ad -->
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                     data-ad-slot="XXXXXXXXXX"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+        </div>
+        
+        <div class="tools-container">
+            <div class="tool-card" id="pdf-to-word">
+                <div class="tool-icon">
+                    <i class="fas fa-file-word"></i>
+                </div>
+                <h2 class="tool-title">PDF to Word Converter</h2>
+                <p class="tool-description">Convert your PDF documents to editable Microsoft Word files while preserving the original formatting and layout.</p>
+                <div class="upload-area" id="pdf-to-word-upload">
+                    <div class="upload-icon">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                    </div>
+                    <p class="upload-text">Drag & drop your PDF file here or click to browse</p>
+                    <input type="file" id="pdf-to-word-input" accept=".pdf" class="file-input">
+                </div>
+                <button class="btn" id="convert-btn">
+                    <i class="fas fa-exchange-alt"></i> Convert to Word
+                </button>
+            </div>
+            
+            <div class="tool-card" id="merge-pdf">
+                <div class="tool-icon">
+                    <i class="fas fa-file-pdf"></i>
+                </div>
+                <h2 class="tool-title">Merge PDF Files</h2>
+                <p class="tool-description">Combine multiple PDF documents into a single file in your preferred order with just a few clicks.</p>
+                <div class="upload-area" id="merge-pdf-upload">
+                    <div class="upload-icon">
+                        <i class="fas fa-file-import"></i>
+                    </div>
+                    <p class="upload-text">Drag & drop multiple PDF files here or click to browse</p>
+                    <input type="file" id="merge-pdf-input" accept=".pdf" multiple class="file-input">
+                </div>
+                <button class="btn" id="merge-btn">
+                    <i class="fas fa-object-group"></i> Merge PDFs
+                </button>
+            </div>
+            
+            <div class="tool-card" id="combine-pdf">
+                <div class="tool-icon">
+                    <i class="fas fa-copy"></i>
+                </div>
+                <h2 class="tool-title">Combine PDF Pages</h2>
+                <p class="tool-description">Select specific pages from multiple PDFs to create a new customized document tailored to your needs.</p>
+                <div class="upload-area" id="combine-pdf-upload">
+                    <div class="upload-icon">
+                        <i class="fas fa-file-export"></i>
+                    </div>
+                    <p class="upload-text">Drag & drop PDF files here or click to browse</p>
+                    <input type="file" id="combine-pdf-input" accept=".pdf" multiple class="file-input">
+                </div>
+                <button class="btn" id="combine-btn">
+                    <i class="fas fa-layer-group"></i> Combine Pages
+                </button>
+            </div>
+        </div>
+        
+        <div class="adsense-container">
+            <div class="ad-placeholder">
+                <!-- Google AdSense Ad Unit -->
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+                     crossorigin="anonymous"></script>
+                <!-- Responsive Ad -->
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                     data-ad-slot="XXXXXXXXXX"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+        </div>
+    </div>
+    
+    <section class="features" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Al Hafiz Computer Shop?</h2>
+                <p>We provide more than just PDF tools - we offer complete computer solutions</p>
+            </div>
+            
+            <div class="features-container">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Secure Processing</h3>
+                    <p class="feature-description">All files are processed in your browser. Your documents never leave your computer until you download them.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="feature-title">Lightning Fast</h3>
+                    <p class="feature-description">Our optimized tools process your files quickly, saving you valuable time on your projects.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3 class="feature-title">No Registration</h3>
+                    <p class="feature-description">Use all our tools without creating an account or providing any personal information.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <h3 class="feature-title">Computer Services</h3>
+                    <p class="feature-description">We also offer hardware repairs, software installation, and other computer services at our shop.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3 class="feature-title">Expert Support</h3>
+                    <p class="feature-description">Our team is available to help with any technical issues or questions you may have.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <h3 class="feature-title">Free Tools</h3>
+                    <p class="feature-description">All our PDF tools are completely free to use with no hidden charges or limitations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Al Hafiz Computer Shop</h3>
+                    <p>Your trusted partner for all computer and technology solutions. Quality service since 2010.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#pdf-to-word"><i class="fas fa-chevron-right"></i> PDF to Word</a></li>
+                        <li><a href="#merge-pdf"><i class="fas fa-chevron-right"></i> Merge PDF</a></li>
+                        <li><a href="#combine-pdf"><i class="fas fa-chevron-right"></i> Combine PDF</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Our Services</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>123 Tech Street, Computer Plaza, City Center</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>+123 456 7890</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>info@alhafizcomputers.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Mon-Sat: 9:00 AM - 8:00 PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2023 Al Hafiz Computer Shop. All Rights Reserved. | <a href="#" style="color: var(--gray);">Privacy Policy</a> | <a href="#" style="color: var(--gray);">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Basic functionality for file upload interactions
+        document.addEventListener('DOMContentLoaded', function() {
+            // PDF to Word Converter
+            const pdfToWordUpload = document.getElementById('pdf-to-word-upload');
+            const pdfToWordInput = document.getElementById('pdf-to-word-input');
+            
+            pdfToWordUpload.addEventListener('click', function() {
+                pdfToWordInput.click();
+            });
+            
+            pdfToWordInput.addEventListener('change', function() {
+                if (this.files.length > 0) {
+                    pdfToWordUpload.innerHTML = `
+                        <div class="upload-icon">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <p class="upload-text">Selected: ${this.files[0].name}</p>
+                    `;
+                }
+            });
+            
+            // Merge PDF
+            const mergePdfUpload = document.getElementById('merge-pdf-upload');
+            const mergePdfInput = document.getElementById('merge-pdf-input');
+            
+            mergePdfUpload.addEventListener('click', function() {
+                mergePdfInput.click();
+            });
+            
+            mergePdfInput.addEventListener('change', function() {
+                if (this.files.length > 0) {
+                    let fileList = '<div class="upload-icon"><i class="fas fa-file-pdf"></i></div>';
+                    for (let i = 0; i < this.files.length; i++) {
+                        fileList += `<p class="upload-text" style="margin:5px 0;font-size:0.9rem;">${i+1}. ${this.files[i].name}</p>`;
+                    }
+                    mergePdfUpload.innerHTML = fileList;
+                }
+            });
+            
+            // Combine PDF
+            const combinePdfUpload = document.getElementById('combine-pdf-upload');
+            const combinePdfInput = document.getElementById('combine-pdf-input');
+            
+            combinePdfUpload.addEventListener('click', function() {
+                combinePdfInput.click();
+            });
+            
+            combinePdfInput.addEventListener('change', function() {
+                if (this.files.length > 0) {
+                    let fileList = '<div class="upload-icon"><i class="fas fa-file-pdf"></i></div>';
+                    for (let i = 0; i < this.files.length; i++) {
+                        fileList += `<p class="upload-text" style="margin:5px 0;font-size:0.9rem;">${i+1}. ${this.files[i].name}</p>`;
+                    }
+                    combinePdfUpload.innerHTML = fileList;
+                }
+            });
+            
+            // Button click handlers (placeholder functionality)
+            document.getElementById('convert-btn').addEventListener('click', function() {
+                if (!pdfToWordInput.files.length) {
+                    alert('Please select a PDF file first');
+                    return;
+                }
+                alert('In a real implementation, this would convert the PDF to Word. For now, it just shows this message.');
+            });
+            
+            document.getElementById('merge-btn').addEventListener('click', function() {
+                if (!mergePdfInput.files.length || mergePdfInput.files.length < 2) {
+                    alert('Please select at least 2 PDF files to merge');
+                    return;
+                }
+                alert('In a real implementation, this would merge the selected PDFs. For now, it just shows this message.');
+            });
+            
+            document.getElementById('combine-btn').addEventListener('click', function() {
+                if (!combinePdfInput.files.length || combinePdfInput.files.length < 2) {
+                    alert('Please select at least 2 PDF files to combine pages from');
+                    return;
+                }
+                alert('In a real implementation, this would open a page selection interface. For now, it just shows this message.');
+            });
+        });
+    </script>
+</body>
+</html>
